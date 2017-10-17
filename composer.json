@@ -1,0 +1,14 @@
+{
+  "name": "theapi/google_apiclient_bundle",
+  "license": "GPL-3.0",
+  "type": "symfony-bundle",
+  "autoload": {
+    "psr-4": {
+      "Theapi\\": "src/Theapi"
+    }
+  },
+  "require": {
+    "google/apiclient": "^2.0"
+  }
+
+}
