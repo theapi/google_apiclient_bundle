@@ -1,0 +1,5 @@
+theapi_google_api_client:
+    application_name: 'Google Sheets API'
+    scopes: 'https://www.googleapis.com/auth/spreadsheets'
+    client_secret_path: '/opt/.credentials/project_client_secret.json'
+    credentials_path: '/opt/.credentials/sheets.googleapis.com-php-project.json'
