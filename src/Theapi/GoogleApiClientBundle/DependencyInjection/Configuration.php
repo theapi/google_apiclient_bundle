@@ -6,24 +6,34 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
- * This is the class that validates and merges configuration from your app/config files.
+ * This is the class that validates and merges configuration from your
+ * app/config files.
  *
- * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/configuration.html}
+ * To learn more see {@link
+ * http://symfony.com/doc/current/cookbook/bundles/configuration.html}
  */
-class Configuration implements ConfigurationInterface
-{
-    /**
-     * {@inheritdoc}
-     */
-    public function getConfigTreeBuilder()
-    {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('theapi_google_api_client');
+class Configuration implements ConfigurationInterface {
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+  /**
+   * {@inheritdoc}
+   */
+  public function getConfigTreeBuilder() {
+    $treeBuilder = new TreeBuilder();
+    $rootNode = $treeBuilder->root('theapi_google_api_client');
 
-        return $treeBuilder;
-    }
+    // Here you should define the parameters that are allowed to
+    // configure your bundle. See the documentation linked above for
+    // more information on that topic.
+
+    $rootNode
+      ->children()
+      ->scalarNode('application_name')->isRequired()->cannotBeEmpty()->end()
+      ->scalarNode('scopes')->isRequired()->cannotBeEmpty()->end()
+      ->scalarNode('client_secret_path')->isRequired()->cannotBeEmpty()->end()
+      ->scalarNode('credentials_path')->isRequired()->cannotBeEmpty()->end()
+      ->end();
+    //end rootnode children
+
+    return $treeBuilder;
+  }
 }
