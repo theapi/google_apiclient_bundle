@@ -1,0 +1,3 @@
+theapi_google_api_client_homepage:
+    path:     /
+    defaults: { _controller: TheapiGoogleApiClientBundle:Default:index }
