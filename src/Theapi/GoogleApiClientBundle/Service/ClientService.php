@@ -30,6 +30,7 @@ class ClientService implements ContainerAwareInterface {
    * @return \Google_Client
    */
   public function getClient() {
+
     $client = new \Google_Client();
     $client->setApplicationName($this->container->getParameter('theapi_google_api_client.application_name'));
     $client->setScopes($this->container->getParameter('theapi_google_api_client.scopes'));

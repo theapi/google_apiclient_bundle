@@ -22,6 +22,11 @@ class TheapiGoogleApiClientExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        $container->setParameter( 'theapi_google_api_client.application_name', $config[ 'application_name' ]);
+        $container->setParameter( 'theapi_google_api_client.scopes', $config[ 'scopes' ]);
+        $container->setParameter( 'theapi_google_api_client.client_secret_path', $config[ 'client_secret_path' ]);
+        $container->setParameter( 'theapi_google_api_client.credentials_path', $config[ 'credentials_path' ]);
+
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
     }
